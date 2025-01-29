@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
             case GameState.MainMenu:
                 Debug.Log("Main Menu");
                 break;
+            case GameState.Start:
+                HandleStart();
+                Debug.Log("Start");
+                break;
             case GameState.InGame:
                 HandleInGame();
                 Debug.Log("In Game");
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         MainMenu,
+        Start,
         InGame,
         GameOver
     }
@@ -70,6 +75,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void HandleGameOver()
+    {
+        // TODO
+    }
+
+    public void HandleStart()
     {
         // TODO
     }

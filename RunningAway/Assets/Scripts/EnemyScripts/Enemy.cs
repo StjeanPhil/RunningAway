@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed = 1;
     [SerializeField] private int health = 10;
+    [SerializeField] private int damage = 1;
     
     public GameObject player;
 
@@ -35,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-       Debug.Log("hit");
+        if(other.gameObject.tag == "Player")
+        {
+            other.GetComponent<Player>().TakeDamage(this.damage);
+            Destroy(this.gameObject);
+        }
     }
 }
