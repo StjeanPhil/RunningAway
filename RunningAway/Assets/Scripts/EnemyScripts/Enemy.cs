@@ -34,11 +34,14 @@ public class Enemy : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    // on collision with player, deal damage to player
+    // destroy self
+
+    void OnCollisionEnter2D(Collision2D other)
     {
-       if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            other.GetComponent<Player>().TakeDamage(this.damage);
+            other.gameObject.GetComponent<Player>().TakeDamage(this.damage);
             Destroy(this.gameObject);
         }
     }
