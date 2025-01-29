@@ -27,9 +27,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckIfAlive();
         Movement();
 
     }
+
+    void CheckIfAlive()
+    {
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void Movement()
     {
               
@@ -41,5 +51,14 @@ public class Player : MonoBehaviour
         body.velocity = direction * speed ;
 
 
-    }   
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
