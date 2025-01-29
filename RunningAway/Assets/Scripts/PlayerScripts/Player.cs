@@ -22,8 +22,5 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(directionX, directionY, 0);
 
         transform.Translate(direction*speed*Time.deltaTime);
-        Debug.Log(direction * speed * Time.deltaTime);
-        Debug.Log(health);
-
     }
 }

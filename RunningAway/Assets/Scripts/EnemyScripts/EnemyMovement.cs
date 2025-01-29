@@ -2,24 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 1;
-    [SerializeField] private int health = 10;
-    
+
+    //set the values in the inspector
+    public Transform target; //drag and stop player object in the inspector
+    public float speed;
+
     public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
-    // Update is called once per frame
-    void Update ()
+    void Update(){
+        ChasePlayer();
+        CheckCollision();
+    }
+
+
+    void CheckCollision()
     {
-       ChasePlayer();
+        
     }
+
 
     void ChasePlayer()
     {
@@ -30,11 +38,8 @@ public class Enemy : MonoBehaviour
 
         //move to target(player) 
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed*Time.deltaTime);
-
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-       Debug.Log("hit");
     }
 }
+
+
+
