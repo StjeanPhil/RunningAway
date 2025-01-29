@@ -11,11 +11,7 @@ public class Player : MonoBehaviour
     //float mapHeight = map.scale.Y;
     //float mapLength = map.scale.X;
     [SerializeField] private Rigidbody2D body;
-
-    
-
-
-
+    [SerializeField] private float exp = 0;
     [SerializeField] private int health = 10;
     // Start is called before the first frame update
     void Start()
@@ -60,5 +56,10 @@ public class Player : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void AddExp(float exp)
+    {
+        this.exp += exp;
     }
 }

@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed = 1;
     [SerializeField] private int health = 10;
     [SerializeField] private int damage = 1;
+
+    [SerializeField] private GameObject gemPrefab;
     
     public GameObject player;
 
@@ -42,7 +44,16 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Player>().TakeDamage(this.damage);
-            Destroy(this.gameObject);
+            Death();
         }
+    }
+
+    void Death()
+    {
+
+        Destroy(this.gameObject);
+
+        // Drop a gem
+        Instantiate(gemPrefab, transform.position, Quaternion.identity);
     }
 }
