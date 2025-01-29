@@ -39,18 +39,6 @@ public class Player : MonoBehaviour
 
     
         body.velocity = direction * speed ;
-        if (this.transform.position[0] >= (50 + 0.5f))
-        {
-            this.transform.position = new Vector3((50+0.5f), this.transform.position[1], 0);
-        }
-
-        
-
-
-
-
-
-
 
 
     }   
